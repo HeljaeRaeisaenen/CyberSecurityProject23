@@ -66,8 +66,6 @@ def loginAction(request):
     try:
         user = Users.objects.get(username=username)
     except Users.DoesNotExist:
-        # this is probably not safe, because you can find out
-        # which usernames are in use
         return render(request,
             'polls/login.html',
             {'error_message':'User not found'})

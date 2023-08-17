@@ -15,7 +15,7 @@ class Users(models.Model):
         # self.password = bcrypt.hash(pss)
         # INSTEAD OF
         self.password = hash(pss)
-        # end
+        # end (continues below)
 
     def check_password(self, pss):
         # Previous cryptographic failure continues:
