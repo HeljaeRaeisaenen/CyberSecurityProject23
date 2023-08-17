@@ -1,0 +1,8 @@
+<h1>This is a private, user-specific page</h1>
+<p>You shouldn't see this if you're not {{user}} </p>
+<h4>Your polls</h4>
+<ul>
+    {% for p in polls %}
+        <li> <a href="{% url 'polls:detail' p.id %}">{{p.question_text}}</a> </li>
+    {% endfor %}
+</ul>

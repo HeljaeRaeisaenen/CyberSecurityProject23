@@ -1,0 +1,39 @@
+<h1>Poll app</h1>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+<br>
+{% if request.session.user %}
+    <a href="{% url 'polls:logout' %}">Log out</a>
+    <br>
+    <a href="{% url 'polls:userpage' request.session.user %}">Your page</a>
+    <h3>Create new poll:</h3>
+
+    <form action="{% url 'polls:create' %}" method="post">
+        {% csrf_token %}
+        Question:
+        <br>
+        <input type="text" name="question" required>
+        <br>
+        Answer choices (can leave empty):
+        <br>
+        <input type="text" name="choice_1" required>
+        <br>
+        <input type="text" name="choice_2">
+        <br>
+        <input type="text" name="choice_3">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{% else %}
+    <br>
+    <a href="{% url 'polls:login' %}">Log in</a>
+    <br>
+    <a href="{% url 'polls:signup' %}">Sign up</a>
+{% endif %}
