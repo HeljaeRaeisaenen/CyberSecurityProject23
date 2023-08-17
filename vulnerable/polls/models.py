@@ -22,8 +22,6 @@ class Users(models.Model):
         # SHULD BE: 
         # if bcrypt.verify(pss, self.password):
         # INSTEAD OF
-        print(self.password)
-        print(hash(pss))
         if int(self.password) == hash(pss):
         # end
             return True
