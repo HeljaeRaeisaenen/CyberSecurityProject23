@@ -23,10 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7%4w$ncc9ij=&vsc)nnjv6vw1jzn^18c(d76q3%@j5r+_wqqnt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+# CyberSecurity23: This allows the backtrace to be printed in the web browser when the app
+# encounters an error, which is a security misconfiguration
+# SHOULD BE:
+# DEBUG = False
+#
+# ALLOWED_HOSTS = ['localhost']
+# INSTEAD OF:
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# END
 
 # Application definition
 
